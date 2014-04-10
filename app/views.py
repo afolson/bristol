@@ -1,8 +1,15 @@
 from flask import render_template
-from app import app, db
+from app import app, db, login_manager
 from app.models import User
 from app.forms import SignupForm
 
+
+@app.before_request():
+    g.user = current_user
+
+@login_manager.user_loader
+def load_user(id):
+    return User.query.get(int(id))
 
 @app.route('/')
 def index():
