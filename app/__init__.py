@@ -13,4 +13,6 @@ db = SQLAlchemy(app)
 login_manager.init_app(app)
 login_manager.login_view = 'login'
 
-from app import models, views, forms
+from app import models, views, forms, jawn
+
+api.add_resource(jawn.Registration, '/api/registration')
