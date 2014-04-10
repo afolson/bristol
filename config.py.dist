@@ -1,0 +1,13 @@
+import os
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
+SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
+
+RECAPTCHA_USE_SSL=True
+RECAPTCHA_PRIVATE_KEY='privkey'
+RECAPTCHA_PUBLIC_KEY='pubkey'
+
+CSRF_ENABLED = True
+SECRET_KEY = 'supersekrit'
+
