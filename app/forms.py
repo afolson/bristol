@@ -12,6 +12,11 @@ class SignupForm(Form):
         Required(message='Enter your Minecraft Username.')
     ])
 
+    name = TextField('Full name:', [
+        Length(max=50, message='Name too long.'),
+        Required(message='Enter your full name.')
+    ])
+
     email = TextField('Email Address:', [
         Length(min=6,
                max=320,

@@ -14,6 +14,7 @@ def signup():
     form = SignupForm(request.form)
     if request.method == 'POST' and form.validate():
         user = User(form.username.data,
+                    form.name.data,
                     form.email.data)
         db.session.add(user)
         db.session.commit()
