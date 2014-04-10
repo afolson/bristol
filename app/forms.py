@@ -1,5 +1,5 @@
 from flask.ext.wtf import Form, RecaptchaField
-from wtforms import TextField, PasswordField
+from wtforms import TextField, PasswordField, FileField
 from wtforms.validators import ValidationError, Required, Length, \
     Email, Regexp
 
@@ -30,3 +30,11 @@ class SignupForm(Form):
     ])
 
     recaptcha = RecaptchaField()
+
+class PoopForm(Form):
+    description = TextField('How was your poop?', [
+        Length(max=128, message='Your poop description is too long.'),
+        Required(message='Tell us how your poop was.'),
+    ])
+
+    image = FileField('Upload a picture of yer turd')
