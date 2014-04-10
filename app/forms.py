@@ -1,5 +1,5 @@
 from flask.ext.wtf import Form, RecaptchaField
-from wtforms import TextField 
+from wtforms import TextField, PasswordField
 from wtforms.validators import ValidationError, Required, Length, \
     Email, Regexp
 
@@ -23,6 +23,10 @@ class SignupForm(Form):
                message='Email too long/short.'),
        Required(message='Enter your email address.'),
        Email(message='Invaid Email address.')
+    ])
+
+    password = PasswordField('Password:', [
+        Required(message='Missing password.'),
     ])
 
     recaptcha = RecaptchaField()
