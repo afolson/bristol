@@ -1,5 +1,6 @@
 from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask.ext import uploads
 
 
 class User(db.Model):
@@ -32,3 +33,9 @@ class User(db.Model):
 
     def __repr(self):
         return '<User %r>' % self.name
+
+
+class Poop(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    description = db.Column(db.String(128))
+    #image = db.Column(db.Integer, db.ForeignKey('uploads.Upload.id'))
