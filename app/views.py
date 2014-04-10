@@ -16,9 +16,6 @@ def signup():
         user = User(form.username.data,
                     form.email.data)
         db.session.add(user)
-
-        try:
-            db.session.commit()
-
+        db.session.commit()
     return render_template('signup.html',
                            form=form)
