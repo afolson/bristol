@@ -27,5 +27,8 @@ class User(db.Model):
     def check_password(self, password):
         return check_password_hash(self.pw_hash, password)
 
+    def get_id(self):
+        return self.id
+
     def __repr(self):
         return '<User %r>' % self.name
