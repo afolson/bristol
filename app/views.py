@@ -22,8 +22,8 @@ def signup():
     if request.method == 'POST' and form.validate():
         user = User(form.username.data,
                     form.name.data,
-                    form.email.data,
-                    form.password.data)
+                    form.password.data,
+                    form.email.data)
         db.session.add(user)
         flash('Thanks, have fun shittin!')
         db.session.commit()
