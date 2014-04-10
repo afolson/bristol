@@ -5,7 +5,7 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))
-    email = db.Columnt(db.VARCHAR(320))
+    email = db.Column(db.VARCHAR(320))
 
     def __init__(self,
                  name=name,
