@@ -21,8 +21,8 @@ class SignupForm(Form):
         Length(min=6,
                max=320,
                message='Email too long/short.'),
-       Required(message='Enter your email address.'),
-       Email(message='Invaid Email address.')
+        Required(message='Enter your email address.'),
+        Email(message='Invaid Email address.')
     ])
 
     password = PasswordField('Password:', [
