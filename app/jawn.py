@@ -16,5 +16,3 @@ class Registration(restful.Resource):
         db.session.add(user)
         db.session.commit()
         return User.query.filter_by(username=args['username']).first(), 201
-
-#api.add_resource(Registration, '/api/registration/')
