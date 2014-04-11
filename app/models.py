@@ -39,7 +39,7 @@ class User(db.Model):
     def get_id(self):
         return self.id
 
-    def __repr(self):
+    def __repr__(self):
         return '<User %r>' % self.name
 
 
