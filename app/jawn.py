@@ -8,9 +8,18 @@ class Registration(restful.Resource):
 
     def post(self):
         args = parser.parse_args()
-        parser.add_argument('rate',
-                            type=int,
-                            help='Rate to charge for this resource')
+        parser.add_argument('username',
+                            type=str,
+                            help='User Name.')
+        parser.add_argument('name',
+                            type=str,
+                            help='Full Name.')
+        parser.add_argument('password',
+                            type=str,
+                            help='Password.')
+        parser.add_argument('email',
+                            type=str,
+                            help='Email.')
         user = models.User(args['username'],
                            args['name'],
                            args['password'],
