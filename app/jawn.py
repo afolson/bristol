@@ -1,4 +1,4 @@
-from app import app
+from app import app, db, parser
 from flask.ext import restful
 
 
@@ -8,6 +8,7 @@ class Registration(restful.Resource):
 
     def post(self):
         args = parser.parse_args()
+        parser.add_argument('rate', type=int, help='Rate to charge for this resource')
         user = User(args['username'],
                     args['name'],
                     args['password'],
