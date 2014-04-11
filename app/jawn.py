@@ -1,5 +1,6 @@
 from app import db, parser, models
-from flask.ext.restful import Resource, fields, marshal_with
+from flask import jsonify
+from flask.ext.restful import Resource, fields
 
 
 class Registration(Resource):
@@ -26,5 +27,6 @@ class Registration(Resource):
                            args['email'])
         db.session.add(user)
         db.session.commit()
-        return models.User.query.filter_by(
-            username=args['username']).first(), 201
+        user_in_db = models.User.query.filter_by(
+            username=args['username']).all()
+        return jsonify(user_in_db=user_in_db), 201
