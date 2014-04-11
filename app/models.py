@@ -21,6 +21,14 @@ class User(db.Model):
         self.set_password(password)
         self.email = email
 
+
+    @property
+    def serialize(self):
+        d = {}
+        for column in self.__table__.columns.keys():
+            d[column] = getattr(self, column)
+        return d
+
     def set_password(self, password):
         self.pw_hash = generate_password_hash(password,
                                               method='pbkdf2:sha512:2000')

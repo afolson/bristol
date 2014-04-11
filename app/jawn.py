@@ -27,6 +27,6 @@ class Registration(Resource):
                            args['email'])
         db.session.add(user)
         db.session.commit()
-        user_in_db = models.User.query.filter_by(
-            username=args['username']).all()
-        return jsonify(user_in_db=user_in_db), 201
+        user_in_db = [i.serialize for i in models.User.query.filter_by(
+            username=args['username']).all()]
+        return jsonify(user_in_db=user_in_db)
