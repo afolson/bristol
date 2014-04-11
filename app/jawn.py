@@ -1,13 +1,12 @@
 from app import db, parser, models
-from flask.ext import restful
+from flask.ext.restful import Resource, fields, marshal_with
 
 
-class Registration(restful.Resource):
+class Registration(Resource):
     def get(self):
         return 'bleh', 200
 
     def post(self):
-        args = parser.parse_args()
         parser.add_argument('username',
                             type=str,
                             help='User Name.')
@@ -20,6 +19,7 @@ class Registration(restful.Resource):
         parser.add_argument('email',
                             type=str,
                             help='Email.')
+        args = parser.parse_args()
         user = models.User(args['username'],
                            args['name'],
                            args['password'],
