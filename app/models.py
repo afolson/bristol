@@ -23,7 +23,7 @@ class User(db.Model):
 
     def set_password(self, password):
         self.pw_hash = generate_password_hash(password,
-            method='pbkdf2:sha512:2000')
+                                              method='pbkdf2:sha512:2000')
 
     def check_password(self, password):
         return check_password_hash(self.pw_hash, password)
@@ -38,4 +38,4 @@ class User(db.Model):
 class Poop(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.String(128))
-    #image = db.Column(db.Integer, db.ForeignKey('uploads.Upload.id'))
+    # image = db.Column(db.Integer, db.ForeignKey('uploads.Upload.id'))
