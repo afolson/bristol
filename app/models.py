@@ -49,3 +49,10 @@ class Poop(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.String(128))
     # image = db.Column(db.Integer, db.ForeignKey('uploads.Upload.id'))
+
+    def __init__(self,
+                 description=description,
+                 image=image)
+
+    def __repr__(self):
+        return '<User %r>' % self.name
