@@ -5,6 +5,8 @@ from flask.ext import uploads
 
 class User(db.Model):
 
+    __private__ = ['password']
+
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(16))
     name = db.Column(db.String(50))
