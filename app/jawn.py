@@ -10,15 +10,19 @@ class Registration(Resource):
     def post(self):
         parser.add_argument('username',
                             type=str,
+                            required=True,
                             help='User Name.')
         parser.add_argument('name',
                             type=str,
+                            required=True,
                             help='Full Name.')
         parser.add_argument('password',
                             type=str,
+                            required=True,
                             help='Password.')
         parser.add_argument('email',
                             type=str,
+                            required=True,
                             help='Email.')
         args = parser.parse_args()
         user = models.User(args['username'],
