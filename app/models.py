@@ -49,7 +49,6 @@ class Poop(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     description = db.Column(db.String(128))
     rating = db.Column(db.Integer)
-    # image = db.Column(db.Integer, db.ForeignKey('uploads.Upload.id'))
 
     def __init__(self,
                  description=description,
