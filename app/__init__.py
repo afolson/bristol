@@ -1,5 +1,4 @@
 from flask import Flask
-from flask.ext import uploads
 from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
