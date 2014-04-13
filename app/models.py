@@ -32,8 +32,8 @@ class User(db.Model):
         return d
 
     def set_password(self, password):
-        self.pw_hash = generate_password_hash(password,
-                                              method='pbkdf2:sha512:2000')
+        self.password = generate_password_hash(password,
+                                               method='pbkdf2:sha512:2000')
 
     def check_password(self, password):
         return check_password_hash(self.pw_hash, password)
